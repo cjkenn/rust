@@ -16,7 +16,7 @@ matrix:
       if: type = pull_request OR branch = auto
 
     - env: IMAGE=dist-x86_64-linux DEPLOY=1
-      if: branch = try OR branch = auto
+      if: OR branch = auto
 
     # "alternate" deployments, these are "nightlies" but don't have assertions
     # turned on, they're deployed to a different location primarily for projects
@@ -120,7 +120,7 @@ matrix:
     - env: IMAGE=dist-aarch64-linux DEPLOY=1
       if: branch = auto
     - env: IMAGE=dist-android DEPLOY=1
-      if: branch = auto
+      if: branch = auto OR branch = try
     - env: IMAGE=dist-arm-linux DEPLOY=1
       if: branch = auto
     - env: IMAGE=dist-armhf-linux DEPLOY=1
